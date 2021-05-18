@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<nav class="navbar navbar-light bg-light m-5">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <div class="d-flex ">
+
+            {% if request.user.is_authenticated %}
+            <div>
+                <p class="btn btn-outlined-secondary">hi {{request.user.username}}</p>
+                <a class="btn btn-primary" href={% url 'logout' %}>Logout</a>
+            </div>
+            {% else %}
+            <div>
+                <h4 class="btn btn-outline-secondary btn-sm">hi guest </h4>
+                <a class="btn btn-primary" href={% url 'login' %}>Login </a>
+            </div>
+            {% endif%}
+        </div>
+    </div>
+</nav>
+
+
+{%endblock%}

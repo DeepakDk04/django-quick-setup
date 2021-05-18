@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+
+<main class="container ">
+    <div class="form-signin">
+        <div class="text-center m-5">
+            <form action="" method="post">
+                {% csrf_token %}
+
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+                    <label for="floatingInput">Enter Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                        name="password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="m-3 ">
+                    <p class="text-muted">Don't Have an Account? <a href="{% url 'register' %}"
+                            class="btn btn-sm btn-outline-secondary"> Sign Up
+                            Now!</a></p>
+                </div>
+                {% if error %}
+                <p class="mt-5 mb-3 text-danger">Username or Password Incorrect.. Please Double Check</p>
+                {% endif%}
+                <button class=" btn btn-lg btn-primary" type="submit">Sign in</button>
+                <p class="mt-5 mb-3 text-muted">Designer Credits</p>
+
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{%endblock%}
